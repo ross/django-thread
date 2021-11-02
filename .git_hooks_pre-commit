@@ -18,4 +18,4 @@ export SLACK_SIGNING_SECRET=""
 
 "$ROOT/script/lint"
 "$ROOT/script/format" --check --quiet || (echo "Formatting check failed, run ./script/format" && exit 1)
-"$ROOT/manage.py" test
+python "$ROOT/setup.py" test

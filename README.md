@@ -29,7 +29,6 @@ from django_thread import Thread
 
 
 class ExampleThread(Thread):
-
     def run(self):
         for some_model in SomeModel.objects.filter(...):
             ...
