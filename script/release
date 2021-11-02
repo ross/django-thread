@@ -8,7 +8,7 @@ fi
 
 . env/bin/activate
 
-VERSION="$(grep __VERSION__ "$ROOT/django_thread/__init__.py" | sed -e "s/.* = '//" -e "s/'$//")"
+VERSION="$(grep __VERSION__ "django_thread/__init__.py" | sed -e "s/.* = '//" -e "s/'$//")"
 
 git tag -s "v$VERSION" -m "Release $VERSION"
 git push origin "v$VERSION"
