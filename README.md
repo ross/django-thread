@@ -8,6 +8,12 @@ If you just jump straight in and use either of those you'll run into slow to man
 
 `django_thread` provides a solution this problem by implementing a `Thread` class that mimics Django's request connection handling and provides a `ThreadPoolExecutor` that does so around the invocations of submitted calls.
 
+## Installing
+
+```
+pip install django-thread
+```
+
 ## Usage
 
 ### Thread
