@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+SOURCES="*.py $(find django_thread example -name '*.py')"
+
+. env/bin/activate
+
+pycodestyle --ignore=E203,E501,E741,W503 $SOURCES
+# we have some intentional `from blah import *`s in __init__.py and pyflakes
+# doesn't have a way to ignore that so far as i can tell so working around
+# that.
+pyflakes $(echo $SOURCES | sed -e 's#simone/settings/__init__.py##')

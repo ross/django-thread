@@ -1,0 +1,7 @@
+*.pyc
+build/
+dist/
+django_thread.egg-info/
+env/
+example/db.sqlite3
+example/db.sqlite3-journal

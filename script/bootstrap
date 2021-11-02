@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+cd "$(dirname "$0")"/..
+
+if [ ! -d env ]; then
+    python3 -m venv env
+fi
+
+. env/bin/activate
+
+pip install -U pip
+pip install -r requirements.txt -r requirements-dev.txt
+
+if [ ! -L ".git/hooks/pre-commit" ]; then
+    ln -s "$(pwd)/.git_hooks_pre-commit" ".git/hooks/pre-commit"
+fi

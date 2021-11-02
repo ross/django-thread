@@ -1,0 +1,21 @@
+#!/bin/sh
+
+set -e
+
+HOOKS=$(dirname "$0")
+GIT=$(dirname "$HOOKS")
+ROOT=$(dirname "$GIT")
+
+. "$ROOT/env/bin/activate"
+
+export DJANGO_SECRET_KEY="django-insecure-96-g#w7mtb#=itlt(&1v0)*vgm_gz+&=*u8g!bpz0x#a2jg-qb"
+export IEX_API_TOKEN=""
+export WSJ_QUOTES_CKEY=""
+export WSJ_QUOTES_ENTITLEMENT_TOKEN=""
+export OPEN_WEATHER_MAP_APP_ID=""
+export SLACK_BOT_TOKEN=""
+export SLACK_SIGNING_SECRET=""
+
+"$ROOT/script/lint"
+"$ROOT/script/format" --check --quiet || (echo "Formatting check failed, run ./script/format" && exit 1)
+"$ROOT/manage.py" test
